@@ -1,0 +1,115 @@
+﻿@model small_online_store.ViewModels.BagViewModel
+
+@{
+    ViewBag.Title = "Buy";
+}
+
+<h2>Buy</h2>
+@using(@Html.BeginForm())
+{
+<div>
+    
+    <hr />
+    <table>
+
+        <tr>
+
+            <td>
+                
+                <img src="@Url.Content(string.Format("~/Photos/" + @Model.ItemsModel.Photo + ".jpg"))" width="200" />
+
+            </td>
+
+            <td>
+                <br />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.HiddenFor(model => model.ItemsModel.Id)
+                    </dt>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ItemsModel.Description)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ItemsModel.Description)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ItemsModel.Price)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ItemsModel.Price)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ItemsModel.Discount)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ItemsModel.Discount)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ItemsModel.type)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ItemsModel.type)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ItemsModel.Brand)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ItemsModel.Brand)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ItemsModel.Color)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ItemsModel.Color)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Select Size")
+                    </dt>
+
+                    <dd>
+                        @{
+                            if(Model.ItemsModel.SSize == true) {
+                            @Html.RadioButtonFor(model => model.OrderModel.Size, "Small")
+                            @Html.DisplayNameFor(model => Model.ItemsModel.SSize)
+                            }
+
+                            if (Model.ItemsModel.MSize == true)
+                            {
+                                @Html.RadioButtonFor(model => model.OrderModel.Size, "Medium")
+                                @Html.DisplayNameFor(model => Model.ItemsModel.MSize)
+                            }
+
+                            if (Model.ItemsModel.LSize == true)
+                            {
+                                @Html.RadioButtonFor(model => model.OrderModel.Size, "Large")
+                                @Html.DisplayNameFor(model => Model.ItemsModel.LSize)
+                            }
+                           }
+
+                    </dd>
+                    <dt>
+                        <input type="submit" value="ADD TO BAG" id="pick" style="color:white; background-color:red"  ; />
+                    </dt>
+                </dl>
+            </td>
+        </tr>
+    </table>
+</div>
+}
+<p>
+
+    @Html.ActionLink("Back to List", "MenClothing")
+</p>

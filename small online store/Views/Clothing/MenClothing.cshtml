@@ -1,0 +1,39 @@
+﻿@model small_online_store.ViewModels.ClothingViewModel
+
+
+<link rel="Stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css" />
+@using(Html.BeginForm())
+{
+    @Html.ListBoxFor(x=> x.Brands , Model.BrandItems)
+    
+    @Html.ListBoxFor(x=> x.Colors , Model.ColorItems)
+    
+    @Html.DropDownListFor(x=> x.Sorts , Model.SortItems)
+    <br />
+    
+    <input type="submit" value="submit" />
+    
+    
+}
+<table class="table" >
+
+        @{
+            int i = 0;
+        }
+    <tr>
+        @foreach (var item in Model.ItemsModel)
+        {
+            if (i % 5 == 0)
+            {
+                @:</tr>
+                @:<tr>
+            }
+            ++i;
+            @Html.Partial("_List", item)
+
+        }
+    </tr>
+</table>
+
+
+

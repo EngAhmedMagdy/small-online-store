@@ -1,0 +1,23 @@
+﻿
+
+
+@if (@small_online_store.Models.CurrentUser.instance != null)
+{
+
+    <ul class="nav navbar-nav navbar-right">
+
+        <li>@Html.ActionLink("Logout", "Logout", "Users")</li>
+        <li>@Html.ActionLink("Profile", "Details", "Users", new { id = @small_online_store.Models.CurrentUser.instance.Id}, null)</li>
+        <li>@Html.ActionLink("Bag", "Index", "Orders", new { userId = @small_online_store.Models.CurrentUser.instance.Id }, null)</li>
+
+    </ul>
+
+}
+
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Create", "Users")</li>
+        <li>@Html.ActionLink("Log in", "Login", "Users")</li>
+    </ul>
+}

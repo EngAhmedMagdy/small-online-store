@@ -1,0 +1,22 @@
+﻿@model small_online_store.Models.Item
+
+
+    <td>
+        <img src="@Url.Content(string.Format("~/Photos/" + @Model.Photo + ".jpg"))" width="150" onclick="@("window.location.href='" + @Url.Action("Buy", "Clothing", new { id = @Model.Id }) + "'");" />
+        <br />
+        @Html.DisplayFor(modelitem => modelitem.Brand)
+        <br />
+        @Html.DisplayFor(modelitem => modelitem.Description)
+        <br />
+        @Html.DisplayFor(modelitem => modelitem.Price)
+        <br />
+        @Html.DisplayFor(modelitem => modelitem.Discount)
+
+
+    </td>
+
+
+     
+    
+
+
